@@ -23,8 +23,8 @@ $(function() {
 
     var publishable_key = "rf_4Bjz2PZ5MAEgst84HXGA";
     var toLoad = {
-        model: "rock-paper-scissors-detection",
-        version: 30 // <<<--- YOUR VERSION THERE
+        model: "rock-paper-scissors-npueo",
+        version: 2 // <<<--- YOUR VERSION THERE
     };
 
     const loadModelPromise = new Promise(function(resolve, reject) {
