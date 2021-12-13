@@ -8,3 +8,16 @@ This game requires no package installments. Simply right click on the `index.htm
 
 ![how to launch](https://media.giphy.com/media/eAoeQC5friBuhRtjAf/giphy.gif)
 
+
+## How it Works
+
+Simply diplay the rock, paper, or scissors hand gestures after pressing the `Start` button.
+
+![how it works](https://media.giphy.com/media/5Hyrts1cUjgJ6iSsWB/giphy.gif)
+![play](https://media.giphy.com/media/NifLFQpjguvXw1Z2bf/giphy.gif)
+
+
+## Todo
+
+- Implement rounds
+- Create a seperate branch for [lizard spock version](https://www.youtube.com/watch?v=Kov2G0GouBw)
