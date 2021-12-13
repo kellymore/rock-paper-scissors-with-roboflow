@@ -72,20 +72,26 @@ body:after {
     justify-content: space-between;
 }
 
-.startButton {
+button.hidden{
+    display: none;
+}
+
+#startButton {
     background-color: green;
     font-size: large;
     color: white;
     border-color: green;
-    margin-left: 40%;
+    margin-left: 35%;
     margin-right: 30%;
     margin-top: 1%;
     padding: 1%;
+    height: fit-content;
     z-index: 100;
 }
 
+
 .player{
-    margin-right: 13%;
+    margin-right: 12%;
     margin-top: 1%;
 }
 

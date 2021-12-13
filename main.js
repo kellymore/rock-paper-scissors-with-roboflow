@@ -23,8 +23,8 @@ $(function() {
 
     var publishable_key = "rf_4Bjz2PZ5MAEgst84HXGA";
     var toLoad = {
-        model: "rock-paper-scissors-npueo",
-        version: 1 // <<<--- YOUR VERSION THERE
+        model: "rock-paper-scissors-detection",
+        version: 30 // <<<--- YOUR VERSION THERE
     };
 
     const loadModelPromise = new Promise(function(resolve, reject) {
@@ -37,45 +37,30 @@ $(function() {
     });
 
 
-/**
- * 
- * display = button
- * user click on start button => trigger computer randomize
- * then get value from randomize
- * then display "go"
- * then capture (get value) the prediction
- * then match, and give score => display "start game"
- * 
- * 
- * 
- */
-
     const SELECTIONS = [
         {
           name: 'rock',
           emoji: '✊',
-          beats: 'scissors'
         },
         {
           name: 'paper',
           emoji: '✋',
-          beats: 'rock'
         },
         {
           name: 'scissors',
           emoji: '✌',
-          beats: 'paper'
         }
       ]
+      
 var startGame = false
 var computer = "none"
-var button = document.querySelector("button")
-button.addEventListener("click", function(e){
+var buttonStart = document.querySelector("button")
+    buttonStart.addEventListener("click", function(e){
     e.preventDefault();
     computer = randomSelection();
-    console.log("computer =>>>>>>>>>>>>", computer)
+    // console.log("computer =>>>>>>>>>>>>", computer)
     startGame=true
-    alert(`start the game ${computer}`)
+    alert(`Press OK, and show Rock, Paper, or Scissor sign`)
 })
 
 function randomSelection() {
@@ -83,16 +68,26 @@ function randomSelection() {
     return SELECTIONS[randomIndex].name
   }
 
-
-// app.js
+  let playerScore = 0;
+  let computerScore = 0;
   
 // Complete logic of game inside this function
-const winner = (player,computer) => {
-    // const result = document.querySelector('.result');
-    // const playerScoreBoard = document.querySelector('.p-count');
-    // const computerScoreBoard = document.querySelector('.c-count');
-    // player = player.toLowerCase();
-    // computer = computer.toLowerCase();
+const winner = (player, computer) => {
+
+    let emoji;
+
+    for (let i = 0; i < SELECTIONS.length; i++) {
+        if(SELECTIONS[i].name === computer){
+            emoji = SELECTIONS[i].emoji
+        }
+      }
+    document.getElementById("computerSign").innerHTML = emoji
+
+    // console.log("emoji", emoji)
+    // console.log("emo", computer)
+    const playerScoreBoard = document.querySelector('.p-count');
+    const computerScoreBoard = document.querySelector('.c-count');
+
     let result;
     if(player === computer){
         result = 'Tie'
@@ -100,53 +95,51 @@ const winner = (player,computer) => {
     else if(player == 'rock'){
         if(computer == 'paper'){
             result = 'Computer Won';
-            // computerScore++;
-            // computerScoreBoard.textContent = computerScore;
+            computerScore++;
+            computerScoreBoard.textContent = computerScore;
 
         }else{
             result = 'Player Won'
-            // playerScore++;
-            // playerScoreBoard.textContent = playerScore;
+            playerScore++;
+            playerScoreBoard.textContent = playerScore;
         }
     }
     else if(player == 'scissors'){
         if(computer == 'rock'){
             result = 'Computer Won';
-            // computerScore++;
-            // computerScoreBoard.textContent = computerScore;
+            computerScore++;
+            computerScoreBoard.textContent = computerScore;
         }else{
             result = 'Player Won';
-            // playerScore++;
-            // playerScoreBoard.textContent = playerScore;
+            playerScore++;
+            playerScoreBoard.textContent = playerScore;
         }
     }
     else if(player == 'paper'){
         if(computer == 'scissors'){
             result = 'Computer Won';
-            // computerScore++;
-            // computerScoreBoard.textContent = computerScore;
+            computerScore++;
+            computerScoreBoard.textContent = computerScore;
         }else{
             result = 'Player Won';
-            // playerScore++;
-            // playerScoreBoard.textContent = playerScore;
+            playerScore++;
+            playerScoreBoard.textContent = playerScore;
         }
     }
+
     return result
 }
-// const game = (player, computer) => {
 
-//     // call function to decide winner
-//     return winner(player, computer)
-// }
 
     Promise.all([
         startVideoStreamPromise,
         loadModelPromise
     ]).then(function() {
         $('body').removeClass('loading');
+        $('button').removeClass('hidden');
         resizeCanvas();
         detectFrame();
-    });
+    })
 
     var canvas, ctx;
     const font = "16px sans-serif";
@@ -269,6 +262,7 @@ const winner = (player,computer) => {
                 $('#fps').text(Math.round(fps));
             }
             prevTime = Date.now();
+            // Result pop up
             if(predictions.length > 0) {
                 let human = predictions[0].class.toLowerCase();
                 let result = winner(human, computer)
