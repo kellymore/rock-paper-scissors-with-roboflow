@@ -52,6 +52,7 @@ $(function() {
         }
       ]
       
+
 var startGame = false
 var computer = "none"
 var buttonStart = document.querySelector("button")
@@ -60,7 +61,7 @@ var buttonStart = document.querySelector("button")
     computer = randomSelection();
     // console.log("computer =>>>>>>>>>>>>", computer)
     startGame=true
-    alert(`Press OK, and show Rock, Paper, or Scissor sign`)
+    alert(`PRESS OK: ROCK, PAPER, SCISSORS, SHOOT!`)
 })
 
 function randomSelection() {
@@ -85,8 +86,8 @@ const winner = (player, computer) => {
 
     // console.log("emoji", emoji)
     // console.log("emo", computer)
-    const playerScoreBoard = document.querySelector('.p-count');
-    const computerScoreBoard = document.querySelector('.c-count');
+    const playerScoreBoard = document.querySelector('.player-count');
+    const computerScoreBoard = document.querySelector('.computer-count');
 
     let result;
     if(player === computer){
@@ -202,7 +203,6 @@ const winner = (player, computer) => {
         var scale = 1;
 
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        console.log("p", predictions)
 
         predictions.forEach(function(prediction) {
             const x = prediction.bbox.x;
@@ -239,7 +239,6 @@ const winner = (player, computer) => {
     };
 
 
-
     var prevTime;
     var pastFrameTimes = [];
     const detectFrame = function() {
@@ -263,7 +262,7 @@ const winner = (player, computer) => {
             }
             prevTime = Date.now();
             // Result pop up
-            if(predictions.length > 0) {
+            if(startGame == true && predictions.length > 0) {
                 let human = predictions[0].class.toLowerCase();
                 let result = winner(human, computer)
                 console.log("human >>>>>", human, result)
