@@ -11,7 +11,7 @@ This game requires no package installments. Simply right click on the `index.htm
 
 ## How it Works
 
-Simply diplay the rock, paper, or scissors hand gestures after pressing the `Start` button.
+Simply display the rock, paper, or scissors hand gestures after pressing the `Start` button.
 
 ![how it works](https://media.giphy.com/media/5Hyrts1cUjgJ6iSsWB/giphy.gif)
 ![play](https://media.giphy.com/media/NifLFQpjguvXw1Z2bf/giphy.gif)
