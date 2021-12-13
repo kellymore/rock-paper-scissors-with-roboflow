@@ -1,4 +1,4 @@
-# Rock Paper Scissors Game Using Computer Vision with [Roboflow](roboflow.com)
+# Rock Paper Scissors Game Using Computer Vision with Roboflow
 
 Roboflow provides all of the tools you need to convert raw images into a custom trained computer vision model and deploy it for use in your applications. You can check out [Roboflow Universe](https://universe.roboflow.com/) for different publicity trained datasets to build off of or [create your own](https://youtu.be/VDqsK3FDIsQ).
 
