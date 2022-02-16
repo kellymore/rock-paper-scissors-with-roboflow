@@ -21,10 +21,10 @@ $(function() {
         });
     });
 
-    var publishable_key = "rf_4Bjz2PZ5MAEgst84HXGA";
+    var publishable_key = "rf_xsaIZ3DeAfXIUzFPhc57";
     var toLoad = {
-        model: "rock-paper-scissors-npueo",
-        version: 2 // <<<--- YOUR VERSION THERE
+        model: "rock-paper-scissors-presentation",
+        version: 4 // <<<--- YOUR VERSION THERE
     };
 
     const loadModelPromise = new Promise(function(resolve, reject) {
